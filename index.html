@@ -4,12 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Daniel Kašík — analytická chemie a software pro přístrojová data</title>
-<meta name="description" content="Daniel Kašík, Fakulta technologická UTB ve Zlíně. Analytická chemie potravin a aplikace pro zpracování dat z laboratorních přístrojů.">
+<meta name="description" content="Daniel Kašík, Fakulta technologická UTB ve Zlíně. Analytická chemie a aplikace pro zpracování dat z laboratorních přístrojů.">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Daniel Kašík — analytická chemie a software pro přístrojová data">
+<meta property="og:description" content="Analytická chemie a aplikace pro zpracování dat z laboratorních přístrojů. Fakulta technologická UTB ve Zlíně.">
+<meta property="og:image" content="https://dkasik.github.io/foto.jpg">
+<meta property="og:url" content="https://dkasik.github.io/">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#152A6E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23152A6E'/%3E%3Ctext x='32' y='44' font-family='system-ui,sans-serif' font-size='30' font-weight='600' fill='%23fff' text-anchor='middle'%3EDK%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
+  color-scheme:light;
   --paper:#FBFAF8; --ink:#1A1D23; --soft:#565C68; --faint:#8B919C;
   --blue:#2247B8; --deep:#152A6E; --rule:#E4E2DD; --tint:#EEF2FB;
   --display:"Space Grotesk", ui-sans-serif, system-ui, sans-serif;
@@ -75,6 +84,7 @@ p{margin:0 0 .9rem}
   font-family:var(--display); font-weight:600; font-size:1.08rem; margin:0 0 .3rem;
 }
 .app p{margin:0; color:var(--soft); font-size:.96rem}
+code{font-family:var(--mono); font-size:.88em; background:var(--tint); padding:.05em .3em; border-radius:3px}
 .for{
   display:block; margin-top:.42rem; font-family:var(--mono); font-size:.79rem;
   color:var(--blue);
@@ -110,6 +120,30 @@ footer{
   margin-top:2.6rem; padding-top:1.2rem; border-top:1px solid var(--rule);
   font-size:.84rem; color:var(--faint);
 }
+
+/* ── pruh sjezdu nad hlavičkou ────────────────────────────── */
+.conf{display:block; line-height:0}
+.conf img{width:100%; height:auto; display:block}
+.conf-bar{background:var(--tint)}
+.conf-note{
+  max-width:34rem; margin:0 auto; padding:.7rem 1.35rem .8rem;
+  font-size:.83rem; color:var(--soft); line-height:1.45;
+}
+.conf-note em{font-style:normal; color:var(--ink)}
+
+/* ── snímek aplikace ──────────────────────────────────────── */
+.shot{margin:.95rem 0 0}
+.shot img{
+  width:100%; height:auto; display:block; border:1px solid var(--rule);
+  border-radius:8px; background:#fff;
+}
+.shot figcaption{
+  margin-top:.4rem; font-family:var(--mono); font-size:.75rem; color:var(--faint);
+}
+
+/* ── logo v patičce ───────────────────────────────────────── */
+.utb{height:26px; width:auto; display:inline-block; margin:0 0 .35rem}
+
 @media (prefers-reduced-motion:no-preference){
   .btn{transition:opacity .15s}
 }
@@ -123,6 +157,13 @@ footer{
 </head>
 <body>
 
+<a class="conf" href="https://sjezd78.csch.cz" target="_blank" rel="noopener">
+  <img src="sjezd.jpg" alt="78. Sjezd chemiků — sjezd chemických společností">
+</a>
+<div class="conf-bar"><p class="conf-note">7.–10. 9. 2026 · Univerzita J. E. Purkyně, Ústí nad Labem<br>
+Poster: <em>Softwarový nástroj pro automatizované zpracování dat z analyzátoru
+aminokyselin</em></p></div>
+
 <header class="top">
   <div class="wrap">
     <!-- FOTO: nahraj vedle index.html soubor foto.jpg (čtvercový, ideálně 600×600 px).
@@ -132,7 +173,7 @@ footer{
     <div class="mono-face" id="mono" aria-hidden="true">DK</div>
 
     <h1>Daniel Kašík</h1>
-    <p class="role">Analytická chemie potravin a aplikace pro zpracování dat
+    <p class="role">Analytická chemie a aplikace pro zpracování dat
       z laboratorních přístrojů</p>
     <p class="where">Fakulta technologická, Univerzita Tomáše Bati ve Zlíně</p>
 
@@ -147,9 +188,9 @@ footer{
 
 <section>
   <p class="lead">Studuji chemii potravin a bioaktivních látek a vedle laboratorní práce
-  píšu nástroje, které zpracovávají data z přístrojů, na kterých měřím. Většina z nich
-  vznikla z jednoho důvodu: vyhodnocení šlo dělat rychleji a dohledatelněji, než jak
-  to umí dodávaný software.</p>
+  tvořím nástroje, které zpracovávají data z přístrojů, na kterých měřím. Většina z nich
+  vznikla ze tří důvodů: vyhodnocení šlo dělat rychleji, jednodušeji a bez
+  investice několika desítek tisíc korun za licenci.</p>
 </section>
 
 <section>
@@ -158,49 +199,81 @@ footer{
   <div class="app">
     <h3>AAA Batch</h3>
     <p>Dávkové zpracování dat z analyzátoru aminokyselin. Čte binární soubory metody
-    i surový záznam, sama detekuje a integruje píky, identifikuje 18 aminokyselin
+    i surový záznam, detekuje a integruje píky, identifikuje 18 aminokyselin
     odolně vůči posunu retenčních časů, kalibruje bracketingem a počítá aminokyselinové
     skóre. Výstupem je publikační tabulka s uchovanými parametry metody.</p>
+    <figure class="shot">
+      <img src="aaa.jpg" alt="Rozhraní AAA Batch: chromatogram s integrovanými píky
+           osmnácti aminokyselin a postup vyhodnocení v deseti krocích" loading="lazy">
+      <figcaption>Kontrola standardů — zeleně a modře oba detekční kanály</figcaption>
+    </figure>
     <span class="for">AAA500 · INGOS · DataApex Clarity</span>
   </div>
 
-  <!-- UPRAV: popis GC/MS aplikace podle skutečnosti -->
   <div class="app">
-    <h3>Nástroj pro GC/MS</h3>
-    <p>[DOPLNIT: jednou až dvěma větami, co aplikace dělá — např. zpracování
-    chromatogramů, knihovní prohledávání spekter, dávkové vyhodnocení sérií.]</p>
-    <span class="for">[DOPLNIT: přístroj a software]</span>
+    <h3>GC·MS Suite</h3>
+    <p>Cesta od surového záznamu k tabulce látek. Čte netCDF i nativní soubory
+    Shimadzu <code>.qgd</code>, opraví základní linii, integruje píky a identifikuje
+    látky prohledáním knihovny MSP — podle spekter i retenčních indexů.
+    Zvládne celou sérii najednou a výsledek vyexportuje do XLSX.</p>
+    <figure class="shot">
+      <img src="gcms.jpg" alt="Rozhraní GC·MS Suite: zrcadlové porovnání naměřeného
+           a knihovního spektra 2-butanonu a tabulka shod se skóre" loading="lazy">
+      <figcaption>Zrcadlové porovnání spekter — nahoře měření, dole knihovna</figcaption>
+    </figure>
+    <span class="for">Shimadzu GCMSsolution · netCDF · knihovny MSP</span>
   </div>
 
-  <!-- UPRAV: popis kalendářové aplikace podle skutečnosti -->
   <div class="app">
     <h3>Laboratorní kalendář</h3>
-    <p>[DOPLNIT: k čemu slouží — plánování nástřiků, rezervace přístrojů, evidence
-    dávek a termínů.]</p>
-    <span class="for">[DOPLNIT: pro koho nebo pro jaké pracoviště]</span>
+    <p>Kalendář napojený na záznamy z měření, sklad chemikálií a standardů,
+    návody k metodám, šablony opakovaných úloh a sdílení mezi lidmi
+    v laboratoři. Vše na jednom místě, online na webu s přístupem
+    po přihlášení.</p>
+    <figure class="shot">
+      <img src="kalendar.jpg" alt="Evidence přístrojů v laboratorním kalendáři: karty
+           analyzátorů, chemikálií a přípravy vzorků s podmínkami měření" loading="lazy">
+      <figcaption>Přístroje a podmínky měření — deset karet ve třech složkách</figcaption>
+    </figure>
+    <span class="for">Ústav chemie FT UTB · webová aplikace</span>
   </div>
+
+  <div class="app">
+    <h3>Simulátor dávkové výroby</h3>
+    <p>Aplikace pro návrh výrobní linky. Postup se poskládá z knihovny operací
+    a spočítá se hmotnostní bilance, doba cyklu, vytížení aparátů, provozní
+    náklady i investice — až po NPV, IRR a návratnost. Nakreslí tok hmoty
+    i dispozici linky v měřítku.</p>
+    <figure class="shot">
+      <img src="simulator.jpg" alt="Dispozice výrobní linky: třináct aparátů v měřítku
+           s kótami a hmotnostmi proudů, vlevo souhrn bilance a výtěžku" loading="lazy">
+      <figcaption>Dispozice linky — aparáty v měřítku, hmotnosti proudů z bilance</figcaption>
+    </figure>
+    <span class="for">Streamlit i webové rozhraní nad společným jádrem</span>
+  </div>
+
 </section>
 
 <section>
   <h2>Praxe</h2>
 
   <div class="job">
-    <div class="when">06/2025<br>doposud</div>
+    <div class="when">10/2022<br>doposud</div>
     <div class="what">
-      <strong>Optimalizace řízení ČOV</strong>
-      <em>Nestlé Česko — závod SFINX</em>
-      <span>Optimalizace stanovení CHSK, celkového dusíku a dalších parametrů
-      vypovídajících o funkčnosti čistírny.</span>
+      <strong>Specialista analytické laboratoře</strong>
+      <em>DF Partner s.r.o. — částečný úvazek</em>
+      <span>Měření na infračerveném spektrometru, tvorba predikčních modelů v NIRS,
+      kontrola kvality polotovarů.</span>
     </div>
   </div>
 
   <div class="job">
-    <div class="when">10/2022<br>doposud</div>
+    <div class="when">06/2025<br>01/2026</div>
     <div class="what">
-      <strong>Kontrolor kvality</strong>
-      <em>DF Partner s.r.o. — částečný úvazek</em>
-      <span>Měření na infračerveném spektrometru, tvorba predikčních modelů v NIRS,
-      kontrola kvality polotovarů.</span>
+      <strong>Optimalizace řízení ČOV</strong>
+      <em>Nestlé Česko — závod SFINX</em>
+      <span>Optimalizace stanovení CHSK, celkového dusíku a dalších parametrů
+      vypovídajících o funkčnosti ČOV.</span>
     </div>
   </div>
 
@@ -241,7 +314,9 @@ footer{
     <li><span class="k">E-mail</span>
         <span class="v"><a href="mailto:d_kasik@utb.cz">d_kasik@utb.cz</a></span></li>
     <li><span class="k">Pracoviště</span>
-        <span class="v">Ústav chemie, FT UTB<br>Vavrečkova 275, 760 01 Zlín</span></li>
+        <span class="v"><img class="utb" src="utb.png"
+             alt="Univerzita Tomáše Bati ve Zlíně, Fakulta technologická"><br>
+             Ústav chemie, FT UTB<br>Vavrečkova 275, 760 01 Zlín</span></li>
     <!-- Odkomentuj a doplň, co chceš zveřejnit. Prázdné řádky raději smaž. -->
     <!-- <li><span class="k">ORCID</span><span class="v"><a href="">0000-0000-0000-0000</a></span></li> -->
     <!-- <li><span class="k">LinkedIn</span><span class="v"><a href="">linkedin.com/in/…</a></span></li> -->
@@ -249,10 +324,6 @@ footer{
   </ul>
 </section>
 
-<footer>
-  Poster · 78. sjezd chemických společností, sekce Analytická chemie<br>
-  Softwarový nástroj pro automatizované zpracování dat z analyzátoru aminokyselin
-</footer>
 
 </main>
 
@@ -264,7 +335,7 @@ document.getElementById('vcard').addEventListener('click', function(){
     'N:Kašík;Daniel;;Bc.;',
     'FN:Daniel Kašík',
     'ORG:Univerzita Tomáše Bati ve Zlíně;Fakulta technologická, Ústav chemie',
-    'TITLE:Analytická chemie potravin',
+    'TITLE:Analytická chemie',
     'EMAIL;TYPE=WORK:d_kasik@utb.cz',
     'ADR;TYPE=WORK:;;Vavrečkova 275;Zlín;;760 01;Česká republika',
     'URL:' + location.origin + location.pathname,
